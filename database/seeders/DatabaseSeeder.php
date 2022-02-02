@@ -17,16 +17,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        /*$this->call([
+        $this->call([
             RolesSeeder::class,
-        ]);*/
+        ]);
         
         //User::factory(5)->create();
-        User::factory(1)->admin()->create();
+       /* User::factory(1)->admin()->create();
 
         User::factory(5)
         ->client()
         ->has(Ticket::factory()->count(3))
-        ->create();
+        ->create();*/
     }
 }
