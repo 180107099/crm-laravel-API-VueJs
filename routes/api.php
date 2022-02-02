@@ -24,4 +24,7 @@ Route::post('roles', [RolesController::class, 'create']);
 Route::get('index', [RolesController::class, 'index']);
 Route::put('roles/{role}', [RolesController::class, 'update']);
 
+Route::get('roles/{role}', [RolesController::class, 'show']);
+Route::get('roles/{role}/users', [RolesController::class, 'users']);
+
 
