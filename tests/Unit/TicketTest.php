@@ -10,34 +10,24 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class TicketTest extends TestCase
 {
     use DatabaseTransactions;
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    
+    public function getTestData()
     {
-        $this->assertTrue(true);
-    }
-
-    public function test_is_new(){
-        $this->seed();
-
-        $ticket = Ticket::factory()->create([
-            'status' => 0,
-        ]);
-
         $this->assertTrue($ticket->isNew());
+        return [
+            [0, true],
+            [1, false],
+        ];
     }
-
-    public function test_is_not_new(){
-        $this->seed();
-
+      /**
+     * @dataProvider getTestData
+     */
+    public function testIsNew($status, $expectedResult)
+    {
         $ticket = Ticket::factory()->create([
-            'status' => 1,
+            'status' => $status,
         ]);
-
-        $this->assertFalse($ticket->isNew());
+        $this->assertEquals($expectedResult, $ticket->isNew());
     }
 
 }

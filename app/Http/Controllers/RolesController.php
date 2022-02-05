@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Http;
 
 class RolesController extends Controller
 {
+
+    public function index(){
+ 
+
+        return Role::get();
+    }
     public function create(Request $request){
         
         //Role::create($request->only('name'));
@@ -22,11 +28,6 @@ class RolesController extends Controller
         return response()->json(true);
     }
 
-    public function index(){
- 
-
-        return response()->json(Role::get());
-    }
 
     public function show(Role $role)
     {
