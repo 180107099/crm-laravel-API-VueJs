@@ -14,7 +14,7 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             return response(true);
         }
-        return response(false, 301);
+        return response(false, 401);
     }
 
     public function logout(){
