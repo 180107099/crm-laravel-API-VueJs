@@ -18,6 +18,12 @@ class AuthController extends Controller
     }
 
     public function logout(){
-        
+        Auth::logout();
+
+        return response(true);
+    }
+
+    public function home(){
+        return response(Auth::user());
     }
 }
